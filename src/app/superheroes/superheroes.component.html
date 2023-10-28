@@ -1,1 +1,14 @@
-<p>superheroes works!</p>
+<div class="filters">
+  <app-search-bar
+    (inputEventEmitter)="searchValueChanged($event)"
+  ></app-search-bar>
+  <app-paginator
+    (pageEventEmitter)="paginationEvent($event)"
+    [pageIndex]="pageInfo.pageIndex"
+    [length]="pageInfo.length"
+    [pageSize]="pageInfo.pageSize"
+  ></app-paginator>
+</div>
+<div class="hero-container">
+  <app-hero-card *ngFor="let superhero of superheroes" [superhero]="superhero"></app-hero-card>
+</div>

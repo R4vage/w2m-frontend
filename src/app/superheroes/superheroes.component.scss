@@ -1,0 +1,45 @@
+@use 'breakpoints' as b;
+
+:host{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.filters{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+@media (min-width: b.$tablet-breakpoint) {
+   :host{
+    padding: 3em;
+   }
+
+   .filters{
+    align-self: flex-end;
+    gap: 0.5em;
+    app-search-bar{
+        max-width: 350px;
+        align-self: flex-end;
+    }
+   }
+
+}
+@media (min-width: b.$laptop-breakpoint) {
+    :host{
+        padding-inline: 4em;
+    }
+
+    .filters{
+        flex-direction: row;
+        align-self: unset;
+        justify-content: space-around;
+        gap: 0.5em;
+        app-search-bar{
+            max-width: 400px;
+        }
+       }
+}
