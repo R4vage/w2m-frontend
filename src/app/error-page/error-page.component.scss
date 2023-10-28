@@ -1,11 +1,12 @@
 @use 'colors' as c;
 
-
-.error-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }
+
 
 mat-card {
   width: 400px;
