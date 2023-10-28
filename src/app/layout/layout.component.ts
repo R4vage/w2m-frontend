@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class LayoutComponent {
   menuItems = Object.values(this.router.routesEnum);
-  constructor(private router: Router) {
-    console.log(this.menuItems)
-  }
+  constructor(private router: Router) {}
 
-  navigateToUrl(url:string) {}
+  navigateToUrl(url: string) {
+    this.router.navigate([url]);
+  }
 }
