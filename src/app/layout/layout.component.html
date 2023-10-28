@@ -1,1 +1,8 @@
-<p>layout works!</p>
+<app-header
+  [menuItems]="menuItems"
+  (buttonClicked)="navigateToUrl($event)"
+></app-header>
+<main>
+    <ng-content></ng-content>
+</main>
+<app-footer></app-footer>
