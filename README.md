@@ -1,27 +1,15 @@
-# W2mFrontend
+About the Superhero Maintenance Application
+This application is developed using the latest LTS versions of Angular, TypeScript. It serves as a Single Page Application (SPA) designed for Superhero management.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+Features
+Consultation of all superheroes.
+Search for a specific superhero using their ID.
+Filter superheroes by name.
+Edit superhero details.
+Delete a superhero from the list.
+Paginated view of the superheroes list with added functionalities like filtering, adding, editing, and deleting.
+Additional Information
+The Superhero data is stored within the service, eliminating the need for a backend. This application emphasizes data modeling, code format, and the reactive programming approach for a smooth user experience. Advanced features, such as Angular Material, application routing, and event-driven component communication, enhance the overall functionality.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+There is a docker-compose and docker files provided. You can start the app by running docker-compose build, and docker-compose up. 
+Otherwise, you can start the both using npm run serve:all. Or ng serve and npm run server.
