@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+import { Store } from '@ngrx/store';
 import {
   SuperheroState,
   selectSuperheroesWithCount,
 } from './store/superhero.reducer';
-import { Store } from '@ngrx/store';
 import { SuperheroActions } from './store/superhero.actions';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Superhero } from './store/superhero.model';
-import { DEFAULT_PAGE_INFO } from '../shared/components/paginator/paginator.component';
+
+import { PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
+
+import { DEFAULT_PAGE_INFO } from '../shared/components/paginator/paginator.component';
+import { Superhero } from './store/superhero.model';
 import { ConfirmModalComponent } from '../shared/components/confirm-modal/confirm-modal.component';
 import { SuperheroModalComponent } from './components/superhero-modal/superhero-modal.component';
 

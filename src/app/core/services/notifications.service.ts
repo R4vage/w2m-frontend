@@ -8,7 +8,7 @@ type notificationType = 'success' | 'error' | 'warning' | 'info';
   providedIn: 'root'
 })
 export class NotificationsService {
-  duration = 30000;
+  duration = 4000;
   constructor(
     private snackBar: MatSnackBar,
     private zone: NgZone

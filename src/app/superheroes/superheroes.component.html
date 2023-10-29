@@ -1,15 +1,27 @@
 <div class="filters">
-  <button mat-raised-button color="accent" class="add-superhero" (click)="openSuperheroModal()">Add Superhero</button>
+  <button
+    mat-raised-button
+    color="accent"
+    class="add-superhero"
+    (click)="openSuperheroModal()"
+  >
+    Add Superhero
+  </button>
   <app-search-bar
-  (inputEventEmitter)="searchValueChanged($event)"
+    (inputEventEmitter)="searchValueChanged($event)"
   ></app-search-bar>
   <app-paginator
-  (pageEventEmitter)="paginationEvent($event)"
-  [pageIndex]="pageInfo.pageIndex"
-  [length]="pageInfo.length"
-  [pageSize]="pageInfo.pageSize"
+    (pageEventEmitter)="paginationEvent($event)"
+    [pageIndex]="pageInfo.pageIndex"
+    [length]="pageInfo.length"
+    [pageSize]="pageInfo.pageSize"
   ></app-paginator>
 </div>
 <div class="hero-container">
-  <app-hero-card *ngFor="let superhero of superheroes" [superhero]="superhero" (deleteSuperhero)="openConfirmDeleteModal($event)" (editSuperhero)="openSuperheroModal(superhero)"></app-hero-card>
+  <app-hero-card
+    *ngFor="let superhero of superheroes"
+    [superhero]="superhero"
+    (deleteSuperhero)="openConfirmDeleteModal($event)"
+    (editSuperhero)="openSuperheroModal(superhero)"
+  ></app-hero-card>
 </div>
