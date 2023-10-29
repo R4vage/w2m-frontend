@@ -1,0 +1,76 @@
+<!-- superhero-modal.component.html -->
+
+<h2 mat-dialog-title>{{ data ? 'Edit Superhero' : 'Add Superhero' }}</h2>
+
+<form [formGroup]="superheroForm">
+
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="id" placeholder="Name" inputTitleCase>
+        <mat-error *ngIf="superheroForm.get('id')?.hasError('required')">
+            Name is required.
+        </mat-error>
+        <mat-error *ngIf="superheroForm.get('id')?.hasError('minlength') || superheroForm.get('id')?.hasError('maxlength')">
+            Name must be between 4 and 30 characters.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Alter Ego</mat-label>
+        <input matInput formControlName="alter_ego" placeholder="Alter Ego" inputTitleCase>
+        <mat-error *ngIf="superheroForm.get('alter_ego')?.hasError('required')">
+            Alter Ego is required.
+        </mat-error>
+        <mat-error *ngIf="superheroForm.get('alter_ego')?.hasError('minlength') || superheroForm.get('alter_ego')?.hasError('maxlength')">
+            Alter Ego must be between 4 and 30 characters.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>First Appearance</mat-label>
+        <input matInput formControlName="first_appearance" placeholder="First Appearance">
+        <mat-error *ngIf="superheroForm.get('first_appearance')?.hasError('required')">
+            First Appearance is required.
+        </mat-error>
+        <mat-error *ngIf="superheroForm.get('first_appearance')?.hasError('minlength') || superheroForm.get('first_appearance')?.hasError('maxlength')">
+            First Appearance must be between 4 and 30 characters.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Publisher</mat-label>
+        <input matInput formControlName="publisher" placeholder="Publisher" inputTitleCase>
+        <mat-error *ngIf="superheroForm.get('publisher')?.hasError('required')">
+            Publisher is required.
+        </mat-error>
+        <mat-error *ngIf="superheroForm.get('publisher')?.hasError('minlength') || superheroForm.get('publisher')?.hasError('maxlength')">
+            Publisher must be between 4 and 30 characters.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Birth Year</mat-label>
+        <input matInput type="number" formControlName="birth_year" placeholder="Birth Year">
+        <mat-error *ngIf="superheroForm.get('birth_year')?.hasError('required')">
+            Birth Year is required.
+        </mat-error>
+        <mat-error *ngIf="superheroForm.get('birth_year')?.hasError('min') || superheroForm.get('birth_year')?.hasError('max')">
+            Birth Year must be between 0 and 5000.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Power Level</mat-label>
+        <mat-select formControlName="power_level">
+            <mat-option *ngFor="let level of [1,2,3,4,5,6,7,8,9,10]" [value]="level">{{ level }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="superheroForm.get('power_level')?.hasError('required')">
+            Power Level is required.
+        </mat-error>
+    </mat-form-field>
+
+    <div class="buttons">
+        <button mat-raised-button color="primary" [disabled]="!superheroForm.valid">Submit</button>
+        <button mat-button mat-dialog-close color="warn">Cancel</button>
+    </div>
+</form>

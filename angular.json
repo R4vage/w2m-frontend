@@ -68,6 +68,14 @@
                   "with": "src/environments/environment.dev.ts"
                 }
               ]
+            },
+            "docker": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.docker.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "development"
@@ -80,6 +88,9 @@
             },
             "development": {
               "browserTarget": "w2m-frontend:build:development"
+            },
+            "docker": {
+              "browserTarget": "w2m-frontend:build:docker"
             }
           },
           "defaultConfiguration": "development"
