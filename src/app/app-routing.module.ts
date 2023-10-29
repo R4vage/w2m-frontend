@@ -3,6 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutes } from './core/router/routes.enum';
 
 const routes: Routes = [
+  { path: '', redirectTo: AppRoutes.SUPERHEROES, pathMatch: 'full' },
+  {
+    path: AppRoutes.ABOUT,
+    loadChildren: () =>
+      import('./about/about.module').then(
+        (m) => m.AboutModule
+      ),
+  },
   {
     path: AppRoutes.SUPERHEROES,
     loadChildren: () =>
