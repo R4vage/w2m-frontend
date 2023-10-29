@@ -13,7 +13,7 @@ import { SearchBarComponentMock } from 'src/app/shared/mocks/search-bar.mock';
 import { ConfirmModalComponentMock } from 'src/app/shared/mocks/confirm-modal.mock';
 
 
-fdescribe('SuperheroesComponent', () => {
+describe('SuperheroesComponent', () => {
   let component: SuperheroesComponent;
   let fixture: ComponentFixture<SuperheroesComponent>;
   let storeMock: any;
