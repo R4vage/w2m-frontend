@@ -5,6 +5,13 @@ import { MatPaginatorIntl, MatPaginatorModule, PageEvent } from '@angular/materi
 
 import { CustomPaginatorInt } from './paginator-int.service';
 
+
+export const DEFAULT_PAGE_INFO: PageEvent = {
+  pageIndex: 0,
+  pageSize: 10,
+  length: 0,
+};
+
 @Component({
   selector: 'app-paginator',
   standalone: true,
@@ -19,7 +26,7 @@ export class PaginatorComponent {
   @Input() pageIndex = 0;
   @Output() pageEventEmitter = new EventEmitter<PageEvent>();
   
-  pageSizeOptions = [2,5, 10, 25];
+  pageSizeOptions = [5, 10, 20];
   hidePageSize = false;
   showPageSizeOptions = true;
   showFirstLastButtons = true;

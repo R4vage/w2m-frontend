@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-header>
+        <mat-card-title>{{ superhero.id }}</mat-card-title>
+    <mat-card-subtitle>{{ superhero.publisher }}</mat-card-subtitle>
+    <div mat-icon-button class="power">Power: <span [class]="'power-' + superhero.power_level">{{ superhero.power_level }}</span></div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p><strong>Alter Ego:</strong> {{ superhero.alter_ego }}</p>
+    <p><strong>First Appearance:</strong> {{ superhero.first_appearance }}</p>
+    <p><strong>Birth Year:</strong> {{ superhero.birth_year }}</p>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-raised-button (click)="edit(superhero.id)">Edit</button>
+    <button mat-button color="warn" (click)="delete(superhero.id)">
+      Delete
+    </button>
+  </mat-card-actions>
+</mat-card>

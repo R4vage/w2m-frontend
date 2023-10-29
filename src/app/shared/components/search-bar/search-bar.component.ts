@@ -55,6 +55,6 @@ export class SearchBarComponent {
     this.inputSubject$.next('');
   }
   inputChange(inputValue: string): void {
-    this.inputSubject$.next(inputValue);
+    this.inputSubject$.next(inputValue.trim().toLowerCase());
   }
 }

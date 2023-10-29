@@ -1,0 +1,29 @@
+<nav>
+  <button
+    mat-fab
+    color="primary"
+    class="menu-button"
+    (click)="isMenuOpened = !isMenuOpened"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="/assets/media/logo.png" class="logo" />
+  <div class="nav-buttons">
+    <ng-container *ngTemplateOutlet="menuButtons"></ng-container>
+  </div>
+</nav>
+<div class="menu" *ngIf="isMenuOpened" @dropDownMenu>
+  <ng-container *ngTemplateOutlet="menuButtons"></ng-container>
+</div>
+
+<ng-template #menuButtons>
+  <button
+    *ngFor="let item of menuItems"
+    mat-raised-button
+    color="primary"
+    class="menu-item"
+    (click)="navigate(item)"
+  >
+    {{ item | titlecase }}
+  </button>
+</ng-template>

@@ -1,0 +1,63 @@
+@use 'breakpoints' as b;
+
+:host{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.add-superhero{
+    align-self: flex-end;
+    padding: 1.2em;
+    font-size: large;
+}
+
+.filters{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    row-gap: 2em;
+}
+
+
+@media (min-width: b.$tablet-breakpoint) {
+   :host{
+    padding: 3em;
+   }
+   .hero-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+   .filters{
+    align-self: flex-end;
+    gap: 0.5em;
+    app-search-bar{
+        max-width: 350px;
+        align-self: flex-end;
+    }
+   }
+
+}
+@media (min-width: b.$laptop-breakpoint) {
+
+    .filters{
+        flex-direction: row;
+        align-self: unset;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5em;
+        app-search-bar{
+            max-width: 400px;
+        }
+       }
+}
