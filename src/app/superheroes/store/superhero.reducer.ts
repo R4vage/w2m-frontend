@@ -6,14 +6,18 @@ import { SuperheroActions } from './superhero.actions';
 export const superheroesFeatureKey = 'superheroes';
 
 export interface SuperheroState extends EntityState<Superhero> {
-  totalCount:number;
+  totalCount: number;
+  page: number;
+  size:number;
 }
 
 export const adapter: EntityAdapter<Superhero> =
   createEntityAdapter<Superhero>();
 
 export const initialState: SuperheroState = adapter.getInitialState({
-  totalCount: 0
+  totalCount: 0,
+  page:0,
+  size:0
 });
 
 export const reducer = createReducer(
@@ -36,15 +40,34 @@ export const reducer = createReducer(
   on(SuperheroActions.updateSuperheroes, (state, action) =>
     adapter.updateMany(action.superheroes, state)
   ),
-  on(SuperheroActions.deleteSuperhero, (state, action) =>
-    adapter.removeOne(action.id, state)
-  ),
   on(SuperheroActions.deleteSuperheroes, (state, action) =>
-    adapter.removeMany(action.ids, state)
+  adapter.removeMany(action.ids, state)
   ),
-  on(SuperheroActions.loadSuperheroesSuccess, (state, action) =>
-    {return adapter.setAll(action.superheroes, {...state,totalCount:action.totalCount})}
-  ),
+  on(SuperheroActions.deleteSuperheroSuccess, (state, action) => {
+    return {
+      ...adapter.removeOne(action.id, state),
+      totalCount: state.totalCount - 1,
+    };
+  }),
+  on(SuperheroActions.partialFetchSuperheroesSuccess, (state, action) => {
+    return adapter.addMany(action.superheroes, {
+      ...state,
+      totalCount: action.totalCount,
+    });
+  }),
+  on(SuperheroActions.loadSuperheroes, (state, action) => {
+     return{
+      ...state,
+      page: action.pageIndex,
+      size: action.pageSize
+    };
+  }),
+  on(SuperheroActions.loadSuperheroesSuccess, (state, action) => {
+    return adapter.setAll(action.superheroes, {
+      ...state,
+      totalCount: action.totalCount,
+    });
+  }),
   on(SuperheroActions.clearSuperheroes, (state) => adapter.removeAll(state))
 );
 
@@ -56,12 +79,18 @@ export const superheroesFeature = createFeature({
   }),
 });
 
-export const selectSuperheroState = (state: any) => state[superheroesFeatureKey];
+export const selectSuperheroState = (state: any) =>
+  state[superheroesFeatureKey];
 
 export const selectTotalCount = createSelector(
   selectSuperheroState,
   (state: SuperheroState) => state.totalCount
 );
+
+export const selectPageInfo = createSelector(
+  selectSuperheroState,
+  (state:SuperheroState) => ({page:state.page, size:state.size, totalCount:state.totalCount})
+)
 
 export const selectSuperheroesWithCount = createSelector(
   superheroesFeature.selectAll,
