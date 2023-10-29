@@ -6,8 +6,7 @@
             "alter_ego": "Bruce Wayne",
             "first_appearance": "Detective Comics #27",
             "birth_year": 1939,
-            "power_level": 7,
-            "origin": "Human"
+            "power_level": 7
         },
         {
             "id": "Superman",
@@ -15,8 +14,7 @@
             "alter_ego": "Kal-El",
             "first_appearance": "Action Comics #1",
             "birth_year": 1938,
-            "power_level": 10,
-            "origin": "Alien"
+            "power_level": 10
         },
         {
             "id": "Flash",
@@ -24,8 +22,7 @@
             "alter_ego": "Jay Garrick",
             "first_appearance": "Flash Comics #1",
             "birth_year": 1940,
-            "power_level": 8,
-            "origin": "Meta-human"
+            "power_level": 8
         },
         {
             "id": "Green Lantern",
@@ -33,8 +30,7 @@
             "alter_ego": "Alan Scott",
             "first_appearance": "All-American Comics #16",
             "birth_year": 1940,
-            "power_level": 9,
-            "origin": "Human"
+            "power_level": 9
         },
         {
             "id": "Green Arrow",
@@ -42,8 +38,7 @@
             "alter_ego": "Oliver Queen",
             "first_appearance": "More Fun Comics #73",
             "birth_year": 1941,
-            "power_level": 7,
-            "origin": "Human"
+            "power_level": 7
         },
         {
             "id": "Wonder Woman",
@@ -51,8 +46,7 @@
             "alter_ego": "Princess Diana",
             "first_appearance": "All Star Comics #8",
             "birth_year": 1941,
-            "power_level": 9,
-            "origin": "God"
+            "power_level": 9
         },
         {
             "id": "Martian Manhunter",
@@ -60,8 +54,7 @@
             "alter_ego": "J'onn J'onzz",
             "first_appearance": "Detective Comics #225",
             "birth_year": 1955,
-            "power_level": 10,
-            "origin": "Alien"
+            "power_level": 10
         },
         {
             "id": "Robin",
@@ -69,8 +62,7 @@
             "alter_ego": "Dick Grayson",
             "first_appearance": "Detective Comics #38",
             "birth_year": 1940,
-            "power_level": 6,
-            "origin": "Human"
+            "power_level": 6
         },
         {
             "id": "Blue Beetle",
@@ -78,8 +70,7 @@
             "alter_ego": "Dan Garret",
             "first_appearance": "Mystery Men Comics #1",
             "birth_year": 1939,
-            "power_level": 6,
-            "origin": "Human"
+            "power_level": 6
         },
         {
             "id": "Black Canary",
@@ -87,8 +78,7 @@
             "alter_ego": "Dinah Drake",
             "first_appearance": "Flash Comics #86",
             "birth_year": 1947,
-            "power_level": 7,
-            "origin": "Meta-human"
+            "power_level": 7
         },
         {
             "id": "Spider Man",
@@ -96,8 +86,7 @@
             "alter_ego": "Peter Parker",
             "first_appearance": "Amazing Fantasy #15",
             "birth_year": 1962,
-            "power_level": 8,
-            "origin": "Human"
+            "power_level": 8
         },
         {
             "id": "Captain America",
@@ -105,8 +94,7 @@
             "alter_ego": "Steve Rogers",
             "first_appearance": "Captain America Comics #1",
             "birth_year": 1941,
-            "power_level": 7,
-            "origin": "Human"
+            "power_level": 7
         },
         {
             "id": "Iron Man",
@@ -114,8 +102,7 @@
             "alter_ego": "Tony Stark",
             "first_appearance": "Tales of Suspense #39",
             "birth_year": 1963,
-            "power_level": 8,
-            "origin": "Human"
+            "power_level": 8
         },
         {
             "id": "Thor",
@@ -123,8 +110,7 @@
             "alter_ego": "Thor Odinson",
             "first_appearance": "Journey into Myster #83",
             "birth_year": 1962,
-            "power_level": 9,
-            "origin": "God"
+            "power_level": 9
         },
         {
             "id": "Hulk",
@@ -132,8 +118,7 @@
             "alter_ego": "Bruce Banner",
             "first_appearance": "The Incredible Hulk #1",
             "birth_year": 1962,
-            "power_level": 10,
-            "origin": "Human"
+            "power_level": 10
         },
         {
             "id": "Wolverine",
@@ -141,8 +126,7 @@
             "alter_ego": "James Howlett",
             "first_appearance": "The Incredible Hulk #180",
             "birth_year": 1974,
-            "power_level": 8,
-            "origin": "Mutant"
+            "power_level": 8
         },
         {
             "id": "Daredevil",
@@ -150,8 +134,7 @@
             "alter_ego": "Matthew Michael Murdock",
             "first_appearance": "Daredevil #1",
             "birth_year": 1964,
-            "power_level": 7,
-            "origin": "Human"
+            "power_level": 7
         },
         {
             "id": "Hawkeye",
@@ -159,8 +142,7 @@
             "alter_ego": "Clinton Francis Barton",
             "first_appearance": "Tales of Suspense #57",
             "birth_year": 1964,
-            "power_level": 6,
-            "origin": "Human"
+            "power_level": 6
         },
         {
             "id": "Cyclops",
@@ -168,8 +150,7 @@
             "alter_ego": "Scott Summers",
             "first_appearance": "X-Men #1",
             "birth_year": 1963,
-            "power_level": 7,
-            "origin": "Mutant"
+            "power_level": 7
         },
         {
             "id": "Silver Surfer",
@@ -177,8 +158,7 @@
             "alter_ego": "Norrin Radd",
             "first_appearance": "The Fantastic Four #48",
             "birth_year": 1966,
-            "power_level": 9,
-            "origin": "Alien"
+            "power_level": 9
         }
     ]
 }

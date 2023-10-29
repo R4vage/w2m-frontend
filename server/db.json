@@ -1,184 +1,164 @@
 {
-    "superheroes": [
-        {
-            "id": "Batman",
-            "publisher": "DC Comics",
-            "alter_ego": "Bruce Wayne",
-            "first_appearance": "Detective Comics #27",
-            "birth_year": 1939,
-            "power_level": 7,
-            "origin": "Human"
-        },
-        {
-            "id": "Superman",
-            "publisher": "DC Comics",
-            "alter_ego": "Kal-El",
-            "first_appearance": "Action Comics #1",
-            "birth_year": 1938,
-            "power_level": 10,
-            "origin": "Alien"
-        },
-        {
-            "id": "Flash",
-            "publisher": "DC Comics",
-            "alter_ego": "Jay Garrick",
-            "first_appearance": "Flash Comics #1",
-            "birth_year": 1940,
-            "power_level": 8,
-            "origin": "Meta-human"
-        },
-        {
-            "id": "Green Lantern",
-            "publisher": "DC Comics",
-            "alter_ego": "Alan Scott",
-            "first_appearance": "All-American Comics #16",
-            "birth_year": 1940,
-            "power_level": 9,
-            "origin": "Human"
-        },
-        {
-            "id": "Green Arrow",
-            "publisher": "DC Comics",
-            "alter_ego": "Oliver Queen",
-            "first_appearance": "More Fun Comics #73",
-            "birth_year": 1941,
-            "power_level": 7,
-            "origin": "Human"
-        },
-        {
-            "id": "Wonder Woman",
-            "publisher": "DC Comics",
-            "alter_ego": "Princess Diana",
-            "first_appearance": "All Star Comics #8",
-            "birth_year": 1941,
-            "power_level": 9,
-            "origin": "God"
-        },
-        {
-            "id": "Martian Manhunter",
-            "publisher": "DC Comics",
-            "alter_ego": "J'onn J'onzz",
-            "first_appearance": "Detective Comics #225",
-            "birth_year": 1955,
-            "power_level": 10,
-            "origin": "Alien"
-        },
-        {
-            "id": "Robin",
-            "publisher": "DC Comics",
-            "alter_ego": "Dick Grayson",
-            "first_appearance": "Detective Comics #38",
-            "birth_year": 1940,
-            "power_level": 6,
-            "origin": "Human"
-        },
-        {
-            "id": "Blue Beetle",
-            "publisher": "DC Comics",
-            "alter_ego": "Dan Garret",
-            "first_appearance": "Mystery Men Comics #1",
-            "birth_year": 1939,
-            "power_level": 6,
-            "origin": "Human"
-        },
-        {
-            "id": "Black Canary",
-            "publisher": "DC Comics",
-            "alter_ego": "Dinah Drake",
-            "first_appearance": "Flash Comics #86",
-            "birth_year": 1947,
-            "power_level": 7,
-            "origin": "Meta-human"
-        },
-        {
-            "id": "Spider Man",
-            "publisher": "Marvel Comics",
-            "alter_ego": "Peter Parker",
-            "first_appearance": "Amazing Fantasy #15",
-            "birth_year": 1962,
-            "power_level": 8,
-            "origin": "Human"
-        },
-        {
-            "id": "Captain America",
-            "publisher": "Marvel Comics",
-            "alter_ego": "Steve Rogers",
-            "first_appearance": "Captain America Comics #1",
-            "birth_year": 1941,
-            "power_level": 7,
-            "origin": "Human"
-        },
-        {
-            "id": "Iron Man",
-            "publisher": "Marvel Comics",
-            "alter_ego": "Tony Stark",
-            "first_appearance": "Tales of Suspense #39",
-            "birth_year": 1963,
-            "power_level": 8,
-            "origin": "Human"
-        },
-        {
-            "id": "Thor",
-            "publisher": "Marvel Comics",
-            "alter_ego": "Thor Odinson",
-            "first_appearance": "Journey into Myster #83",
-            "birth_year": 1962,
-            "power_level": 9,
-            "origin": "God"
-        },
-        {
-            "id": "Hulk",
-            "publisher": "Marvel Comics",
-            "alter_ego": "Bruce Banner",
-            "first_appearance": "The Incredible Hulk #1",
-            "birth_year": 1962,
-            "power_level": 10,
-            "origin": "Human"
-        },
-        {
-            "id": "Wolverine",
-            "publisher": "Marvel Comics",
-            "alter_ego": "James Howlett",
-            "first_appearance": "The Incredible Hulk #180",
-            "birth_year": 1974,
-            "power_level": 8,
-            "origin": "Mutant"
-        },
-        {
-            "id": "Daredevil",
-            "publisher": "Marvel Comics",
-            "alter_ego": "Matthew Michael Murdock",
-            "first_appearance": "Daredevil #1",
-            "birth_year": 1964,
-            "power_level": 7,
-            "origin": "Human"
-        },
-        {
-            "id": "Hawkeye",
-            "publisher": "Marvel Comics",
-            "alter_ego": "Clinton Francis Barton",
-            "first_appearance": "Tales of Suspense #57",
-            "birth_year": 1964,
-            "power_level": 6,
-            "origin": "Human"
-        },
-        {
-            "id": "Cyclops",
-            "publisher": "Marvel Comics",
-            "alter_ego": "Scott Summers",
-            "first_appearance": "X-Men #1",
-            "birth_year": 1963,
-            "power_level": 7,
-            "origin": "Mutant"
-        },
-        {
-            "id": "Silver Surfer",
-            "publisher": "Marvel Comics",
-            "alter_ego": "Norrin Radd",
-            "first_appearance": "The Fantastic Four #48",
-            "birth_year": 1966,
-            "power_level": 9,
-            "origin": "Alien"
-        }
-    ]
+  "superheroes": [
+      {
+          "id": "Batman",
+          "publisher": "DC Comics",
+          "alter_ego": "Bruce Wayne",
+          "first_appearance": "Detective Comics #27",
+          "birth_year": 1939,
+          "power_level": 7
+      },
+      {
+          "id": "Superman",
+          "publisher": "DC Comics",
+          "alter_ego": "Kal-El",
+          "first_appearance": "Action Comics #1",
+          "birth_year": 1938,
+          "power_level": 10
+      },
+      {
+          "id": "Flash",
+          "publisher": "DC Comics",
+          "alter_ego": "Jay Garrick",
+          "first_appearance": "Flash Comics #1",
+          "birth_year": 1940,
+          "power_level": 8
+      },
+      {
+          "id": "Green Lantern",
+          "publisher": "DC Comics",
+          "alter_ego": "Alan Scott",
+          "first_appearance": "All-American Comics #16",
+          "birth_year": 1940,
+          "power_level": 9
+      },
+      {
+          "id": "Green Arrow",
+          "publisher": "DC Comics",
+          "alter_ego": "Oliver Queen",
+          "first_appearance": "More Fun Comics #73",
+          "birth_year": 1941,
+          "power_level": 7
+      },
+      {
+          "id": "Wonder Woman",
+          "publisher": "DC Comics",
+          "alter_ego": "Princess Diana",
+          "first_appearance": "All Star Comics #8",
+          "birth_year": 1941,
+          "power_level": 9
+      },
+      {
+          "id": "Martian Manhunter",
+          "publisher": "DC Comics",
+          "alter_ego": "J'onn J'onzz",
+          "first_appearance": "Detective Comics #225",
+          "birth_year": 1955,
+          "power_level": 10
+      },
+      {
+          "id": "Robin",
+          "publisher": "DC Comics",
+          "alter_ego": "Dick Grayson",
+          "first_appearance": "Detective Comics #38",
+          "birth_year": 1940,
+          "power_level": 6
+      },
+      {
+          "id": "Blue Beetle",
+          "publisher": "DC Comics",
+          "alter_ego": "Dan Garret",
+          "first_appearance": "Mystery Men Comics #1",
+          "birth_year": 1939,
+          "power_level": 6
+      },
+      {
+          "id": "Black Canary",
+          "publisher": "DC Comics",
+          "alter_ego": "Dinah Drake",
+          "first_appearance": "Flash Comics #86",
+          "birth_year": 1947,
+          "power_level": 7
+      },
+      {
+          "id": "Spider Man",
+          "publisher": "Marvel Comics",
+          "alter_ego": "Peter Parker",
+          "first_appearance": "Amazing Fantasy #15",
+          "birth_year": 1962,
+          "power_level": 8
+      },
+      {
+          "id": "Captain America",
+          "publisher": "Marvel Comics",
+          "alter_ego": "Steve Rogers",
+          "first_appearance": "Captain America Comics #1",
+          "birth_year": 1941,
+          "power_level": 7
+      },
+      {
+          "id": "Iron Man",
+          "publisher": "Marvel Comics",
+          "alter_ego": "Tony Stark",
+          "first_appearance": "Tales of Suspense #39",
+          "birth_year": 1963,
+          "power_level": 8
+      },
+      {
+          "id": "Thor",
+          "publisher": "Marvel Comics",
+          "alter_ego": "Thor Odinson",
+          "first_appearance": "Journey into Myster #83",
+          "birth_year": 1962,
+          "power_level": 9
+      },
+      {
+          "id": "Hulk",
+          "publisher": "Marvel Comics",
+          "alter_ego": "Bruce Banner",
+          "first_appearance": "The Incredible Hulk #1",
+          "birth_year": 1962,
+          "power_level": 10
+      },
+      {
+          "id": "Wolverine",
+          "publisher": "Marvel Comics",
+          "alter_ego": "James Howlett",
+          "first_appearance": "The Incredible Hulk #180",
+          "birth_year": 1974,
+          "power_level": 8
+      },
+      {
+          "id": "Daredevil",
+          "publisher": "Marvel Comics",
+          "alter_ego": "Matthew Michael Murdock",
+          "first_appearance": "Daredevil #1",
+          "birth_year": 1964,
+          "power_level": 7
+      },
+      {
+          "id": "Hawkeye",
+          "publisher": "Marvel Comics",
+          "alter_ego": "Clinton Francis Barton",
+          "first_appearance": "Tales of Suspense #57",
+          "birth_year": 1964,
+          "power_level": 6
+      },
+      {
+          "id": "Cyclops",
+          "publisher": "Marvel Comics",
+          "alter_ego": "Scott Summers",
+          "first_appearance": "X-Men #1",
+          "birth_year": 1963,
+          "power_level": 7
+      },
+      {
+          "id": "Silver Surfer",
+          "publisher": "Marvel Comics",
+          "alter_ego": "Norrin Radd",
+          "first_appearance": "The Fantastic Four #48",
+          "birth_year": 1966,
+          "power_level": 9
+      }
+  ]
 }
