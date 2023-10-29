@@ -1,14 +1,13 @@
 import { SuperheroesService } from './../superheroes.service';
 import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
-import { EMPTY } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import {
   map,
   mergeMap,
   catchError,
-  tap,
   withLatestFrom,
-  switchMap,
+  switchMap
 } from 'rxjs/operators';
 import { SuperheroActions } from './superhero.actions';
 import { NotificationsService } from 'src/app/core/services/notifications.service';
@@ -70,6 +69,55 @@ export class SuperheroEffects {
     )
   );
 
+  insertSuperhero$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SuperheroActions.insertSuperhero),
+      mergeMap((action) =>{
+        return this.superheroesService.insertSuperhero(action.superhero).pipe(
+          map(() =>
+            SuperheroActions.insertSuperheroSuccess({
+              superhero: action.superhero,
+            })
+          ),
+          catchError(() => EMPTY)
+        )}
+      )
+    )
+  );
+
+  insertSuperheroSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SuperheroActions.insertSuperheroSuccess),
+      withLatestFrom(this.store.select(selectPageInfo)),
+      switchMap(([action, { page, size, totalCount, search }]) => {
+        this.notificationsService.emitNotification(
+          `Superhero ${action.superhero.id} created successfully`,
+          'success'
+        );
+        if (totalCount < size * page - 1 && search && action.superhero.id.toLowerCase().includes(search)) {
+          return of(SuperheroActions.addSuperhero({superhero:action.superhero}))
+        }
+        return EMPTY;
+      })
+    )
+  );
+
+  updateSuperhero$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SuperheroActions.updateSuperhero),
+      mergeMap((action) =>{
+        return this.superheroesService.patchSuperhero(action.superhero).pipe(
+          map(() =>
+            SuperheroActions.updateSuperheroSuccess({superhero:{
+              id:action.superhero.id,
+              changes: action.superhero,
+            }})
+          ),
+          catchError(() => EMPTY)
+        )}
+      )
+    )
+  );
   constructor(
     private actions$: Actions,
     private superheroesService: SuperheroesService,

@@ -9,6 +9,7 @@ export interface SuperheroState extends EntityState<Superhero> {
   totalCount: number;
   page: number;
   size:number;
+  search: string | null;
 }
 
 export const adapter: EntityAdapter<Superhero> =
@@ -17,7 +18,8 @@ export const adapter: EntityAdapter<Superhero> =
 export const initialState: SuperheroState = adapter.getInitialState({
   totalCount: 0,
   page:0,
-  size:0
+  size:0,
+  search: null
 });
 
 export const reducer = createReducer(
@@ -34,7 +36,7 @@ export const reducer = createReducer(
   on(SuperheroActions.upsertSuperheroes, (state, action) =>
     adapter.upsertMany(action.superheroes, state)
   ),
-  on(SuperheroActions.updateSuperhero, (state, action) =>
+  on(SuperheroActions.updateSuperheroSuccess, (state, action) =>
     adapter.updateOne(action.superhero, state)
   ),
   on(SuperheroActions.updateSuperheroes, (state, action) =>
@@ -43,6 +45,7 @@ export const reducer = createReducer(
   on(SuperheroActions.deleteSuperheroes, (state, action) =>
   adapter.removeMany(action.ids, state)
   ),
+
   on(SuperheroActions.deleteSuperheroSuccess, (state, action) => {
     return {
       ...adapter.removeOne(action.id, state),
@@ -59,7 +62,8 @@ export const reducer = createReducer(
      return{
       ...state,
       page: action.pageIndex,
-      size: action.pageSize
+      size: action.pageSize,
+      search: action.searchValue || null
     };
   }),
   on(SuperheroActions.loadSuperheroesSuccess, (state, action) => {
@@ -89,7 +93,7 @@ export const selectTotalCount = createSelector(
 
 export const selectPageInfo = createSelector(
   selectSuperheroState,
-  (state:SuperheroState) => ({page:state.page, size:state.size, totalCount:state.totalCount})
+  (state:SuperheroState) => ({page:state.page, size:state.size, totalCount:state.totalCount, search:state.search})
 )
 
 export const selectSuperheroesWithCount = createSelector(
