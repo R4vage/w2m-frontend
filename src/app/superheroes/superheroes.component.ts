@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { SuperheroesService } from './superheroes.service';
 import {
   SuperheroState,
-  selectAll,
   selectSuperheroesWithCount,
-  selectTotal,
 } from './store/superhero.reducer';
 import { Store } from '@ngrx/store';
 import { SuperheroActions } from './store/superhero.actions';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Superhero } from './store/superhero.model';
 import { DEFAULT_PAGE_INFO } from '../shared/components/paginator/paginator.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmModalComponent } from '../shared/components/confirm-modal/confirm-modal.component';
+import { SuperheroModalComponent } from './components/superhero-modal/superhero-modal.component';
 
 @Component({
   selector: 'app-superheroes',
@@ -23,13 +23,22 @@ export class SuperheroesComponent {
   superheroes!: Superhero[];
   searchValue!: string;
 
-  constructor(private superheroStore: Store<SuperheroState>) {
+  constructor(
+    private superheroStore: Store<SuperheroState>,
+    public dialog: MatDialog
+  ) {
     this.superheroStore
       .select(selectSuperheroesWithCount)
       .pipe(takeUntilDestroyed())
       .subscribe((result) => {
         this.superheroes = result.superheroes;
         this.pageInfo.length = result.totalCount;
+        if (!this.superheroes.length && this.pageInfo.length) {
+          this.paginationEvent({
+            ...this.pageInfo,
+            pageIndex: this.pageInfo.pageIndex - 1,
+          });
+        }
       });
   }
 
@@ -58,8 +67,41 @@ export class SuperheroesComponent {
       SuperheroActions.loadSuperheroes({
         pageIndex: event.pageIndex + 1,
         pageSize: event.pageSize,
-        searchValue: this.searchValue
+        searchValue: this.searchValue,
       })
     );
+  }
+
+  openConfirmDeleteModal(id: string) {
+    const dialogRef = this.dialog.open(ConfirmModalComponent, {
+      width: '250px',
+      data: 'Do you confirm the deletion?',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.superheroStore.dispatch(SuperheroActions.deleteSuperhero({ id }));
+      }
+    });
+  }
+
+  openSuperheroModal(superhero?: Superhero) {
+    const dialogRef = this.dialog.open(SuperheroModalComponent, {
+      data: superhero,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (!result) return;
+      if (!superhero) {
+        this.superheroStore.dispatch(
+          SuperheroActions.insertSuperhero({ superhero: result })
+        );
+      } else {
+        this.superheroStore.dispatch(
+          SuperheroActions.updateSuperhero({
+            superhero: { ...result, id: superhero.id },
+          })
+        );
+      }
+    });
   }
 }
