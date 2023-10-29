@@ -27,7 +27,11 @@ import { CommonModule } from '@angular/common';
         justify-content: center;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.7);
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.2) 50%,
+        );
         z-index: 100;
       }
       .lds-roller {

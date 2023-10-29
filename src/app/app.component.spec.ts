@@ -6,8 +6,8 @@ import { LoadingSpinnerComponent } from './core/interceptor/loading/spinner.comp
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent, LayoutComponentMock, LoadingSpinnerComponent]
+    imports: [RouterTestingModule, LoadingSpinnerComponent],
+    declarations: [AppComponent, LayoutComponentMock],
   }));
 
   it('should create the app', () => {
