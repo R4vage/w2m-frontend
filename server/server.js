@@ -1,14 +1,9 @@
 const jsonServer = require("json-server");
 const server = jsonServer.create();
 const path = require("path");
-const router = jsonServer.router(path.join(__dirname, "db.json")); // your json data file
+const router = jsonServer.router(path.join(__dirname, "db.json")); 
 const middlewares = jsonServer.defaults();
-const cors = require("cors");
 
-const corsOptions = {
-  origin: "http://localhost:4200",
-  exposedHeaders: ["X-Total-Count"],
-};
 
 server.use((req, res, next) => {
   const oldSend = res.send;
@@ -28,8 +23,6 @@ server.use((req, res, next) => {
 });
 
 server.use(middlewares);
-
-server.use(cors(corsOptions));
 
 server.use(router);
 server.listen(3000, () => {
