@@ -23,6 +23,8 @@ export const SuperheroActions = createActionGroup({
     'Update Superhero': props<{superhero: Superhero }>(),
     'Update Superhero Success': props<{ superhero: Update<Superhero> }>(),
 
+    'Update Count': props<{totalCount:number}>(),
+
     'Upsert Superhero': props<{ superhero: Superhero }>(),
     'Add Superheroes': props<{ superheroes: Superhero[] }>(),
     'Upsert Superheroes': props<{ superheroes: Superhero[] }>(),

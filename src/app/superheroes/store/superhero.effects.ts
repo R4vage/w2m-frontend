@@ -7,7 +7,7 @@ import {
   mergeMap,
   catchError,
   withLatestFrom,
-  switchMap
+  switchMap,
 } from 'rxjs/operators';
 import { SuperheroActions } from './superhero.actions';
 import { NotificationsService } from 'src/app/core/services/notifications.service';
@@ -59,7 +59,7 @@ export class SuperheroEffects {
         if (totalCount > size * page - 1) {
           return this.superheroesService.getSuperheroes(page * size, 1).pipe(
             map((response) =>
-              SuperheroActions.addSuperhero({ superhero: response.data[0] })
+              SuperheroActions.addSuperhero({ superhero: response.data[0] }),
             ),
             catchError(() => EMPTY)
           );
@@ -72,7 +72,7 @@ export class SuperheroEffects {
   insertSuperhero$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SuperheroActions.insertSuperhero),
-      mergeMap((action) =>{
+      mergeMap((action) => {
         return this.superheroesService.insertSuperhero(action.superhero).pipe(
           map(() =>
             SuperheroActions.insertSuperheroSuccess({
@@ -80,8 +80,8 @@ export class SuperheroEffects {
             })
           ),
           catchError(() => EMPTY)
-        )}
-      )
+        );
+      })
     )
   );
 
@@ -94,10 +94,16 @@ export class SuperheroEffects {
           `Superhero ${action.superhero.id} created successfully`,
           'success'
         );
-        if (totalCount < size * page - 1 && search && action.superhero.id.toLowerCase().includes(search)) {
-          return of(SuperheroActions.addSuperhero({superhero:action.superhero}))
+        const shouldAddSuperhero =
+          totalCount < size * page - 1 &&
+          (!search || action.superhero.id.toLowerCase().includes(search));
+        if (shouldAddSuperhero) {
+          return of(
+            SuperheroActions.addSuperhero({ superhero: action.superhero }),
+            SuperheroActions.updateCount({totalCount:totalCount+1})
+          );
         }
-        return EMPTY;
+        return of(SuperheroActions.updateCount({totalCount:totalCount+1}));
       })
     )
   );
@@ -105,17 +111,19 @@ export class SuperheroEffects {
   updateSuperhero$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SuperheroActions.updateSuperhero),
-      mergeMap((action) =>{
+      mergeMap((action) => {
         return this.superheroesService.patchSuperhero(action.superhero).pipe(
           map(() =>
-            SuperheroActions.updateSuperheroSuccess({superhero:{
-              id:action.superhero.id,
-              changes: action.superhero,
-            }})
+            SuperheroActions.updateSuperheroSuccess({
+              superhero: {
+                id: action.superhero.id,
+                changes: action.superhero,
+              },
+            })
           ),
           catchError(() => EMPTY)
-        )}
-      )
+        );
+      })
     )
   );
   constructor(
