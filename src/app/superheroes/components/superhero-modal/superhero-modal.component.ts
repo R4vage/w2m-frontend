@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Superhero } from '../../store/superhero.model'; 
+import { Superhero } from '../../store/superhero.model';
+import { SuperheroValidators } from '../../superheroes.validator';
 
 @Component({
   selector: 'app-superhero-modal',
@@ -10,8 +11,10 @@ import { Superhero } from '../../store/superhero.model';
 })
 export class SuperheroModalComponent implements OnInit {
   superheroForm!: FormGroup;
+  maxPowerLevel = 10;
 
   constructor(
+    private superheroValidators: SuperheroValidators,
     private fb: FormBuilder,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: Superhero,
     private dialogRef: MatDialogRef<SuperheroModalComponent>
@@ -20,12 +23,13 @@ export class SuperheroModalComponent implements OnInit {
   ngOnInit(): void {
     this.superheroForm = this.fb.group({
       id: [
-        {value: this.data?.id || '', disabled: !!this.data},
+        { value: this.data?.id || '', disabled: !!this.data },
         [
           Validators.required,
           Validators.minLength(4),
           Validators.maxLength(30),
         ],
+        [this.superheroValidators.superheroNameValidator()],
       ],
       alter_ego: [
         this.data?.alter_ego || '',
@@ -61,11 +65,9 @@ export class SuperheroModalComponent implements OnInit {
       ],
     });
   }
-
   onSubmit() {
     if (this.superheroForm.valid) {
       this.dialogRef.close(this.superheroForm.value);
     }
   }
-
 }

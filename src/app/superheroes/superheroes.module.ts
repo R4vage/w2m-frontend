@@ -26,6 +26,8 @@ import { SuperheroModalComponent } from './components/superhero-modal/superhero-
 import { SearchBarComponent } from '../shared/components/search-bar/search-bar.component';
 import { InputTitleCaseDirective } from '../shared/directives/inputToTitleCase.directive';
 import { PaginatorComponent } from '../shared/components/paginator/paginator.component';
+import { NumberToNumbersArrayPipe } from '../shared/pipes/number-to-numbers-array.pipe';
+import { SuperheroValidators } from './superheroes.validator';
 
 const MATERIAL_MODULES = [
   MatCardModule,
@@ -51,6 +53,7 @@ const MATERIAL_MODULES = [
     SearchBarComponent,
     HttpClientModule,
     ReactiveFormsModule,
+    NumberToNumbersArrayPipe,
     StoreModule.forFeature(
       fromSuperhero.superheroesFeatureKey,
       fromSuperhero.reducer
@@ -58,6 +61,7 @@ const MATERIAL_MODULES = [
     EffectsModule.forFeature([SuperheroEffects]),
     ...MATERIAL_MODULES,
   ],
-  providers: [SuperheroesService],
+    
+  providers: [SuperheroesService, SuperheroValidators],
 })
 export class SuperheroesModule {}
