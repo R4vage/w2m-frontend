@@ -38,4 +38,8 @@ export class SuperheroesService {
       superhero
     );
   }
+
+  getSuperhero(id: string) {
+    return this.http.get(`${this.BASIC_URL}superheroes/${id}`);
+  }
 }
